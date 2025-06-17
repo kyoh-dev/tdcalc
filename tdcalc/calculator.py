@@ -1,4 +1,4 @@
-from typing import Literal
+from .types import PaidAtInterval
 
 COMPOUNDS_PER_YEAR = {
     "monthly": 12,
@@ -23,7 +23,7 @@ def calculate_final_balance(
     deposit: float,
     interest_rate_percent: float,
     months: int,
-    paid_at: Literal["monthly", "quarterly", "annually", "maturity"],
+    paid_at: PaidAtInterval,
 ) -> float:
     interest_rate = interest_rate_percent / 100
 

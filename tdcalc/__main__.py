@@ -1,8 +1,8 @@
 import logging
 from dataclasses import dataclass
 from argparse import ArgumentParser
-from typing import Literal
 
+from .types import PaidAtInterval
 from .calculator import calculate_final_balance
 
 
@@ -11,7 +11,7 @@ class ProgramArgs:
     deposit: int
     interest_rate: float
     term_months: int
-    paid_at: Literal["monthly", "quarterly", "annually", "maturity"]
+    paid_at: PaidAtInterval
 
 
 def parse_args() -> ProgramArgs:
@@ -52,7 +52,7 @@ def parse_args() -> ProgramArgs:
     return ProgramArgs(**parser.parse_args().__dict__)
 
 
-def main(deposit: int, interest_rate_percent: float, term_months: int, paid_at: Literal["monthly", "quarterly", "annually", "maturity"]) -> None:
+def main(deposit: int, interest_rate_percent: float, term_months: int, paid_at: PaidAtInterval) -> None:
     print("Term deposit calculator")
     print("---------------------------------------------")
     print(f"Deposit: {deposit}")
