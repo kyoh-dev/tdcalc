@@ -17,9 +17,11 @@ pip install -r requirements.dev.txt
 
 # Usage
 
+## Running the calculator
+
 You can run the calculator by executing the package as a module with `python -m tdcalc`:
 
-```python
+```shell
 $ python -m tdcalc --help
 usage: python -m tdcalc [-h] --deposit DEPOSIT --interest-rate INTEREST_RATE --term-months TERM_MONTHS --paid-at {monthly,quarterly,annually,maturity}
 
@@ -36,6 +38,16 @@ options:
 --paid-at {monthly,quarterly,annually,maturity}, -p {monthly,quarterly,annually,maturity}
                       When the interest will be paid
 ```
+
+### Concrete example
+
+```shell
+python -m tdcalc -d 10000 -i 1.1 -t 36 -p maturity                                                                                                                                                                                                                    [16:45:45]
+```
+
+## Running the tests
+
+You can run the tests using `pytest [-vvv] tests` to get a nice output.
 
 # Assumptions
 
