@@ -1,6 +1,6 @@
 import pytest
 
-from tdcalc.calculator import calculate_simple_interest
+from tdcalc.calculator import calculate_simple_interest, calculate_compound_interest
 
 
 @pytest.mark.parametrize(
@@ -13,3 +13,9 @@ def test_calculate_simple_interest(deposit, interest_rate, months, expected_resu
     result = calculate_simple_interest(deposit, interest_rate, months)
 
     assert result == expected_result
+
+
+def test_calculate_compound_interest():
+    result = calculate_compound_interest(10_000, 0.011, 36, 4)
+
+    assert result == 335
