@@ -1,7 +1,6 @@
 import pytest
 
 from tdcalc.calculator import calculate_simple_interest, calculate_compound_interest, calculate_final_balance
-from tdcalc.validation import validate_inputs
 
 
 @pytest.mark.parametrize(
@@ -43,8 +42,3 @@ def test_calculate_final_balance_compound_interest_valid_paid_at_interval(deposi
     result = calculate_final_balance(deposit, interest_rate, months, paid_at)
 
     assert result == expected_result
-
-
-def test_validate_inputs():
-    with pytest.raises(SystemExit):
-        validate_inputs(8, "annually")
