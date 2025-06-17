@@ -15,7 +15,13 @@ def test_calculate_simple_interest(deposit, interest_rate, months, expected_resu
     assert result == expected_result
 
 
-def test_calculate_compound_interest():
-    result = calculate_compound_interest(10_000, 0.011, 36, 4)
+@pytest.mark.parametrize(
+    "deposit, interest_rate, months, num_compounds_per_year, expected_result", [
+        pytest.param(10_000, 0.011, 36, 4, 335.04),
+        pytest.param(55_125, 0.034, 8, 12, 1261.96),
+    ]
+)
+def test_calculate_compound_interest(deposit, interest_rate, months, num_compounds_per_year, expected_result):
+    result = calculate_compound_interest(deposit, interest_rate, months, num_compounds_per_year)
 
-    assert result == 335.04
+    assert result == expected_result
