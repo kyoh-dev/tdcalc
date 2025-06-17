@@ -1,6 +1,10 @@
 def calculate_simple_interest(deposit: float, interest_rate: float, months: int) -> float:
-    return deposit * interest_rate * (months / 12)
+    interest = deposit * interest_rate * (months / 12)
+
+    return round(interest, 2)
 
 
 def calculate_compound_interest(deposit: float, interest_rate: float, months: int, num_compounds_per_year: int) -> float:
-    ...
+    total = deposit * (1 + interest_rate / num_compounds_per_year) ** (num_compounds_per_year * (months / 12))
+
+    return round(total - deposit, 2)

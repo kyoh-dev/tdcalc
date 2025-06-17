@@ -18,4 +18,4 @@ def test_calculate_simple_interest(deposit, interest_rate, months, expected_resu
 def test_calculate_compound_interest():
     result = calculate_compound_interest(10_000, 0.011, 36, 4)
 
-    assert result == 335
+    assert result == 335.04
