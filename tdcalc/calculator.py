@@ -1,2 +1,2 @@
-def calculate_simple_interest(deposit: float, interest_rate: float, years: int) -> float:
-    return deposit * interest_rate * years
+def calculate_simple_interest(deposit: float, interest_rate: float, months: int) -> float:
+    return deposit * interest_rate * (months / 12)
