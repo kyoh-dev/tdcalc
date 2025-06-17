@@ -1,7 +1,7 @@
 import pytest
 
 from tdcalc.calculator import calculate_simple_interest, calculate_compound_interest, calculate_final_balance
-from tdcalc.__main__ import validate_inputs
+from tdcalc.validation import validate_inputs
 
 
 @pytest.mark.parametrize(

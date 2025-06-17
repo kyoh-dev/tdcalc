@@ -2,10 +2,9 @@ import logging
 from dataclasses import dataclass
 from argparse import ArgumentParser
 
+from tdcalc.validation import validate_inputs
 from .types import PaidAtInterval
 from .calculator import calculate_final_balance
-
-logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -54,13 +53,9 @@ def parse_args() -> ProgramArgs:
     return ProgramArgs(**parser.parse_args().__dict__)
 
 
-def validate_inputs(term_months: int, paid_at: PaidAtInterval) -> None:
-    if (term_months < 12 and paid_at == "annually") or (term_months < 4 and paid_at == "quarterly"):
-        logger.error(f"Cannot calculate a term of {term_months} months for interval {paid_at}")
-        exit(1)
-
-
 def main(deposit: int, interest_rate_percent: float, term_months: int, paid_at: PaidAtInterval) -> None:
+    validate_inputs(term_months, paid_at)
+
     print("Term deposit calculator")
     print("---------------------------------------------")
     print(f"Deposit: {deposit}")
