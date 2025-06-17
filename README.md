@@ -51,7 +51,7 @@ You can run the tests using `pytest [-vvv] tests` to get a nice output.
 
 # Assumptions
 
-* I was entirely sure what "at maturity" meant in terms of calculating the interest, so I opted for calculating that as
+* I wasn't entirely sure what "at maturity" meant in terms of calculating the interest, so I opted for calculating that as
 simple interest instead of compound, based on Google searches and the output of the Bendigo Bank calculator
 * The input for the term is in months, as that's easier to calculate for months and years, but that's assuming the user
 is amenable to this
